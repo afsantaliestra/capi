@@ -1,0 +1,38 @@
+{
+    // VSCode configs.
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+    "files.insertFinalNewline": true,
+    // Python configs.
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "black-formatter.importStrategy": "fromEnvironment",
+    "black-formatter.args": [
+        "--line-length=120"
+    ],
+    "flake8.importStrategy": "fromEnvironment",
+    "flake8.args": [
+        "--config=./dev_configs/.flake8"
+    ],
+    "isort.importStrategy": "fromEnvironment",
+    "isort.args": [
+        "--profile=black",
+        "--settings-file=./dev_configs/.isort.cfg"
+    ],
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "pylint.importStrategy": "fromEnvironment",
+    "pylint.args": [
+        "--rcfile=dev_configs/.pylintrc"
+    ],
+}

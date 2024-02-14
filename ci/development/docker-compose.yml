@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  character_api:
+    image: character_api:0.1.0
+    container_name: character_api
+    build:
+      context: ../../
+      dockerfile: ./ci/development/dockerfile
+    restart: unless-stopped
+    volumes:
+      - "../..:/src/character_api"
+    ports:
+      - "8080:8080"
+    networks:
+      - character_api_net
+
+networks:
+  character_api_net:

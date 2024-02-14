@@ -1,0 +1,27 @@
+# Imagen base. ToDo: Usar una mas ligera o poner las diferentes opciones.
+FROM python:3.11
+
+# Setup Timezone
+ENV TZ=Europe/Madrid
+
+# Crea el directorio por defecto
+WORKDIR /src/character_api
+
+# Install Zsh, Oh-My-Zsh. Make Zsh default console.
+RUN apt-get update && \
+    apt-get install -y zsh
+
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+RUN chsh -s $(which zsh)
+
+# Add custom configuration to Zsh
+RUN echo "source /src/zsh_config.sh" >> /root/.zshrc
+
+# Instala y configura poetry
+RUN pip install --upgrade pip && \
+    pip install poetry && \
+    poetry config virtualenvs.in-project true
+
+# Launch project
+ENTRYPOINT ["tail", "-f", "/dev/null"]
