@@ -22,8 +22,8 @@ async def post_user(user: PostUserSchema) -> Any:
 
     async with tinydb as database:
         table: Table = database.table("users")
-        # No other user with same username
 
+        # No other user with same username
         user = table.get(Query().username == new_user["username"])
         if user:
             return None  # TODO: Improve response to a 404.

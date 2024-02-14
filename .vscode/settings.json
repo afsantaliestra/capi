@@ -31,4 +31,5 @@
     "pylint.args": [
         "--rcfile=dev_configs/.pylintrc"
     ],
+    "editor.defaultFormatter": "ms-python.black-formatter",
 }
