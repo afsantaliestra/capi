@@ -11,6 +11,5 @@
         "ms-vscode.makefile-tools",
         "mhutchie.git-graph",
         "waderyan.gitblame",
-        "emeraldwalk.runonsave",
     ]
 }

@@ -4,10 +4,17 @@ from typing import List
 from pydantic import BaseModel, Field
 
 
+class PostUserSchema(BaseModel):
+    """Post User Schema"""
+
+    username: str = Field(...)
+    display_name: str = Field(...)
+
+
 class UserResponseSchema(BaseModel):
     """User Response Schema"""
 
-    code: int = Field(...)
+    code: str = Field(...)
     username: str = Field(...)
     display_name: str = Field(...)
 
@@ -15,5 +22,5 @@ class UserResponseSchema(BaseModel):
 class UsersResponseSchema(BaseModel):
     """Users Response Schema"""
 
-    users: List[UserResponseSchema] = Field(...)
     count: int = Field(...)
+    users: List[UserResponseSchema] = Field(...)

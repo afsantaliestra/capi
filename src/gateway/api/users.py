@@ -1,40 +1,60 @@
 """src/gateway/api/connectivity.py - User Routes"""
 from typing import Any
+from uuid import uuid4
 
+from aiotinydb import AIOTinyDB
 from fastapi import APIRouter
+from tinydb import Query
+from tinydb.database import Table
 
-from src.fake_db import db  # TODO: Implement a real DB.
-from src.gateway.schemas.users import UserResponseSchema, UsersResponseSchema
+from src.gateway.schemas.users import PostUserSchema, UserResponseSchema, UsersResponseSchema
 
 router = APIRouter(prefix="/users", tags=["Users"])
+tinydb: AIOTinyDB = AIOTinyDB("./local_dbs/tiny_db.json")
+
+
+@router.post(
+    "/",
+)
+async def post_user(user: PostUserSchema) -> Any:
+    """Post User"""
+    new_user = {**user.model_dump(), "code": uuid4().hex}
+
+    async with tinydb as database:
+        table: Table = database.table("users")
+        # No other user with same username
+
+        user = table.get(Query().username == new_user["username"])
+        if user:
+            return None  # TODO: Improve response to a 404.
+
+        # Insert user
+        table.insert(new_user)
+
+    return new_user
 
 
 @router.get(
     "/",
     response_model=UsersResponseSchema,
 )
-def get_all_users() -> Any:
+async def get_all_users() -> Any:
     """Get All Users"""
-    return {
-        "users": db["users"].values(),
-        "count": len(db["users"]),
-    }
+    async with tinydb as database:
+        table: Table = database.table("users")
+        users = table.all()
+
+    return UsersResponseSchema(users=users, count=len(users))
 
 
 @router.get(
     "/{code}",
     response_model=UserResponseSchema,
 )
-def get_user(code: int) -> Any:
+async def get_user(code: str) -> Any:
     """Get User"""
-    return db["users"][code]
+    async with tinydb as database:
+        table: Table = database.table("users")
+        user = table.get(Query().code == code)
 
-
-@router.get(
-    "/{code}/characters",
-    # response_model=UserResponseSchema,
-)
-def get_user_characters(code: int) -> Any:
-    """Get User"""
-    characters = [character for character in db["characters"].values() if character["user_code"] == code]
-    return characters
+    return UserResponseSchema(**user)
