@@ -1,0 +1,462 @@
+{
+    "contents": {
+        "1": {
+            "name": "Gargadeth",
+            "scope": "character",
+            "repetitions": "1",
+            "frequency": "daily",
+            "rests": true,
+            "min_ilvl": 1610,
+            "max_ilvl": 9999,
+            "modes": "no",
+            "code": "61d18d9c21bc417c8c2af5401cf0b2be"
+        },
+        "2": {
+            "name": "Akkan",
+            "scope": "character",
+            "repetitions": "3",
+            "frequency": "weekly",
+            "rests": true,
+            "min_ilvl": 1580,
+            "max_ilvl": 9999,
+            "modes": "normal/hard",
+            "code": "232cd5e953544fbc92301db100815f7e"
+        }
+    },
+    "users": {
+        "1": {
+            "username": "necros",
+            "display_name": "Necros",
+            "code": "d7278aaaec3349ab89b6272268ba34f4"
+        },
+        "2": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah",
+                                    "tasks": [
+                                        {}
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {}
+                            ]
+                        }
+                    ],
+                    "tasks": [
+                        {}
+                    ]
+                }
+            ],
+            "tasks": [
+                {}
+            ]
+        },
+        "3": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah",
+                                    "tasks": [
+                                        {
+                                            "name": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": null
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "name": null
+                        }
+                    ]
+                }
+            ],
+            "tasks": [
+                {
+                    "name": null
+                }
+            ]
+        },
+        "4": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah",
+                                    "tasks": [
+                                        {
+                                            "name": "chaos_dungeon"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Eismel",
+                                    "tasks": []
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Kayangel",
+                            "characters": [
+                                {
+                                    "name": "N\u00ebcross",
+                                    "tasks": []
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                },
+                {
+                    "name": "Secondary",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "B\u00e4rdbarella",
+                                    "tasks": []
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                }
+            ],
+            "tasks": []
+        },
+        "5": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah",
+                                    "tasks": [
+                                        {
+                                            "name": "chaos_dungeon"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Eismel",
+                                    "tasks": null
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Kayangel",
+                            "characters": [
+                                {
+                                    "name": "N\u00ebcross",
+                                    "tasks": []
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                },
+                {
+                    "name": "Secondary",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "B\u00e4rdbarella",
+                                    "tasks": []
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Daily Playtime"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                }
+            ],
+            "tasks": []
+        },
+        "6": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah"
+                                },
+                                {
+                                    "name": "Eismel"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Kayangel",
+                            "characters": [
+                                {
+                                    "name": "N\u00ebcross"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Secondary",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "B\u00e4rdbarella"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "7": {
+            "username": "string",
+            "accounts": [
+                {
+                    "name": "string",
+                    "roosters": [
+                        {
+                            "name": "string",
+                            "characters": [
+                                {
+                                    "name": "string",
+                                    "tasks": [
+                                        {
+                                            "name": "Chaos Dungeon"
+                                        },
+                                        {
+                                            "name": "Guardian Raid"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Playtime Rewards"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                }
+            ],
+            "tasks": []
+        },
+        "8": {
+            "username": "Necros",
+            "accounts": [
+                {
+                    "name": "Main",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "Kayleenaiah",
+                                    "tasks": [
+                                        {
+                                            "name": "Chaos Dungeon"
+                                        },
+                                        {
+                                            "name": "Guardian Raid"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Eismel",
+                                    "tasks": [
+                                        {
+                                            "name": "Chaos Dungeon"
+                                        },
+                                        {
+                                            "name": "Guardian Raid"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Playtime Rewards"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Kayangel",
+                            "characters": [
+                                {
+                                    "name": "N\u00ebcross",
+                                    "tasks": [
+                                        {
+                                            "name": "Chaos Dungeon"
+                                        },
+                                        {
+                                            "name": "Guardian Raid"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Playtime Rewards"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                },
+                {
+                    "name": "Secondary",
+                    "roosters": [
+                        {
+                            "name": "Thirain",
+                            "characters": [
+                                {
+                                    "name": "B\u00e4rdbarella",
+                                    "tasks": [
+                                        {
+                                            "name": "Chaos Dungeon"
+                                        },
+                                        {
+                                            "name": "Guardian Raid"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "tasks": [
+                                {
+                                    "name": "Playtime Rewards"
+                                },
+                                {
+                                    "name": "World Boss"
+                                }
+                            ]
+                        }
+                    ],
+                    "tasks": []
+                }
+            ],
+            "tasks": []
+        }
+    },
+    "characters": {
+        "1": {
+            "name": "Kayleenaiah",
+            "account": "Main",
+            "rooster": "Thirain",
+            "class": "slayer",
+            "item_level": 1610,
+            "main": true,
+            "weekly_gold": true,
+            "lazy": false,
+            "user": "d7278aaaec3349ab89b6272268ba34f4",
+            "code": "d6e7cbaa60244a15bd4f0cec0f3d5529"
+        }
+    },
+    "checklist": {
+        "1": {
+            "user_code": "d7278aaaec3349ab89b6272268ba34f4",
+            "character_code": "d6e7cbaa60244a15bd4f0cec0f3d5529",
+            "content_code": "61d18d9c21bc417c8c2af5401cf0b2be",
+            "value": "0"
+        },
+        "2": {
+            "user_code": "d7278aaaec3349ab89b6272268ba34f4",
+            "character_code": "d6e7cbaa60244a15bd4f0cec0f3d5529",
+            "content_code": "232cd5e953544fbc92301db100815f7e",
+            "value": "2"
+        }
+    }
+}

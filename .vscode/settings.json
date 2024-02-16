@@ -32,4 +32,7 @@
         "--rcfile=dev_configs/.pylintrc"
     ],
     "editor.defaultFormatter": "ms-python.black-formatter",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
 }

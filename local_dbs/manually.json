@@ -1,0 +1,114 @@
+{
+    "username": "necros",
+    "display_name": "Necros",
+    "accounts": [
+        {
+            "name": "Main",
+            "roosters": [
+                {
+                    "name": "Thirain",
+                    "characters": [
+                        {
+                            "name": "Kayleenaiah",
+                            "class": "Fighter",
+                            "sub_class": "Slayer",
+                            "ilvl": 1610
+                        },
+                        {
+                            "name": "Eismel",
+                            "class": "Martial Artist",
+                            "sub_class": "Scrapper",
+                            "ilvl": 1583
+                        },
+                        {
+                            "name": "Jelenkyrath",
+                            "class": "Martial Artist",
+                            "sub_class": "Soulfist",
+                            "ilvl": 1540
+                        },
+                        {
+                            "name": "Wülcrath",
+                            "class": "Fighter",
+                            "sub_class": "Paladin",
+                            "ilvl": 1550
+                        },
+                        {
+                            "name": "Nïarah",
+                            "class": "Assasin",
+                            "sub_class": "Souleater",
+                            "ilvl": 1548
+                        },
+                        {
+                            "name": "Winlyra",
+                            "class": "Gunner",
+                            "sub_class": "Ginslinger",
+                            "ilvl": 1350
+                        },
+                        {
+                            "name": "Lindseiah",
+                            "class": "Mage",
+                            "sub_class": "Soreceress",
+                            "ilvl": 1100
+                        },
+                        {
+                            "name": "Breakerino",
+                            "class": "Martial Artist",
+                            "sub_class": "Breaker",
+                            "ilvl": 0
+                        }
+                    ]
+                },
+                {
+                    "name": "Kayangel",
+                    "characters": [
+                        {
+                            "name": "Nëcross",
+                            "class": "Gunner",
+                            "sub_class": "Sharpshooter",
+                            "ilvl": 1583
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Secondary",
+            "roosters": [
+                {
+                    "name": "Thirain",
+                    "characters": [
+                        {
+                            "name": "Bärdbarella",
+                            "class": "Mage",
+                            "sub_class": "Bard",
+                            "ilvl": 1583
+                        },
+                        {
+                            "name": "Mästodonte",
+                            "class": "Fighter",
+                            "sub_class": "Gunlancer",
+                            "ilvl": 0
+                        },
+                        {
+                            "name": "Kyarana",
+                            "class": "Fighter",
+                            "sub_class": "Slayer",
+                            "ilvl": 1300
+                        }
+                    ]
+                },
+                {
+                    "name": "Kayangel",
+                    "characters": [
+                        {
+                            "name": "Summonella",
+                            "class": "Mage",
+                            "sub_class": "Summoner",
+                            "ilvl": 1350
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

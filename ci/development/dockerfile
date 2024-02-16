@@ -5,7 +5,7 @@ FROM python:3.11
 ENV TZ=Europe/Madrid
 
 # Crea el directorio por defecto
-WORKDIR /src/character_api
+WORKDIR /src/capi
 
 # Install Zsh, Oh-My-Zsh. Make Zsh default console.
 RUN apt-get update && \

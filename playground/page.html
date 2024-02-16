@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla Dinámica</title>
+</head>
+<body>
+    <table id="miTabla" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://127.0.0.1:8080/userino',)
+                .then(response => response.json())
+                .then(datos => llenarTabla(datos))
+                .catch(error => console.error('Error al cargar los datos:', error));
+        });
+
+        function llenarTabla(datos) {
+            datos=[
+    {
+        "id": 1,
+        "nombre": "A",
+        "valor": 100    },
+    {
+        "id": 2,
+        "nombre": "B",
+        "valor": 200
+    },
+    {
+        "id": 3,
+        "nombre": "C",
+        "valor": 300
+    }
+]
+
+            let tbody = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+
+            datos.forEach((fila, index) => {
+                let tr = tbody.insertRow();
+                
+                let td1 = tr.insertCell();
+                td1.textContent = fila.id;
+
+                let td2 = tr.insertCell();
+                td2.textContent = fila.nombre;
+
+                let td3 = tr.insertCell();
+                td3.textContent = fila.valor;
+
+                
+                // Ejemplo de lógica para unir celdas (2 filas juntas):
+                if (index > 0 && datos[index].nombre === datos[index - 1].nombre) {
+                    let celdaAnterior = tbody.rows[index - 1].cells[1];
+                    celdaAnterior.rowSpan = (celdaAnterior.rowSpan || 1) + 1;
+                    tr.deleteCell(1); // Elimina la celda duplicada en la fila actual
+                }
+                // Ejemplo de lógica para unir celdas (2 columnas juntas):
+                console.log(datos[index].nombre, datos[index].valor)
+                if (datos[index].nombre === datos[index].valor) {
+                    let celdaAnterior = tbody.rows[index].cells[2];
+                    celdaAnterior.colSpan = (celdaAnterior.colSpan || 1) + 1;
+                    tr.deleteCell(1); // Elimina la celda duplicada en la fila actual
+                }
+            });
+        }
+    </script>
+</body>
+</html>

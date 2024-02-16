@@ -1,19 +1,20 @@
 version: '3'
 
 services:
-  character_api:
-    image: character_api:0.1.0
-    container_name: character_api
+  capi:
+    image: capi:0.1.0
+    container_name: capi
     build:
       context: ../../
       dockerfile: ./ci/development/dockerfile
     restart: unless-stopped
     volumes:
-      - "../..:/src/character_api"
+      - "../..:/src/capi"
     ports:
       - "8080:8080"
     networks:
-      - character_api_net
+      - capi_net
 
 networks:
-  character_api_net:
+  capi_net:
+    name: capi_net

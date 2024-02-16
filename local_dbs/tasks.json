@@ -1,0 +1,12 @@
+{
+    "user_global_tasks": [],
+    "account_global_tasks": [],
+    "rooster_global_tasks": [
+        {"name": "Playtime Rewards"},
+        {"name": "World Boss"}
+    ],
+    "character_global_tasks": [
+        {"name": "Chaos Dungeon"},
+        {"name": "Guardian Raid"}
+    ]
+}
