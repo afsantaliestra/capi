@@ -21,7 +21,7 @@ async def post_user(user: PostUser):
     if await User.find(User.username == user.username).count():
         raise exceptions.DuplicatedHTTPException()
 
-    db_user = User.from_user(user)
+    db_user = User.from_api_object(user)
     await db_user.insert()
     return db_user
 

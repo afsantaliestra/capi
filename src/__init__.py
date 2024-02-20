@@ -12,7 +12,7 @@ pyproject = toml.load("pyproject.toml")
 
 TITLE = "FastAPI - CAPI"
 
-configure_logging(level="DEBUG", service=TITLE)
+# configure_logging(level="DEBUG", service=TITLE)
 
 app = FastAPI(
     title=TITLE,
