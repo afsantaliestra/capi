@@ -266,7 +266,7 @@ class DataModelWithTasks(BaseModel):
         """Tasks Serializer"""
         if tasks.model_dump(exclude_unset=True):
             return tasks
-        return None
+        return {}
 
 
 class CharacterData(DataModelWithTasks):
@@ -310,20 +310,44 @@ class UserData(DataModelWithTasks):
         return code.hex
 
 
-@router.get(
-    "/userino",
+@router.post(
+    "/",
 )
-async def get_tasks_by_user():  # user: UserData):
-    """Get Tasks by User"""
-    return {"A": "B"}
+async def create_user(user: UserData):
+    """Create User"""
     async with tinydb as database:
         table: Table = database.table("users")
-        data = table.get(Query()["username"] == user.username)
 
-        if data:
+        if table.contains(Query()["username"] == user.username):
             return None  # TODO: Improve response to a 404.
 
         # Insert user
-        table.insert(user.model_dump(warnings=False))
+        table.insert(user.model_dump(warnings=False, by_alias=True))
 
     return user
+
+
+@router.get(
+    "/{code}",
+)
+async def read_user(code: str):
+    """Read User"""
+    async with tinydb as database:
+        table: Table = database.table("users")
+        data = table.get(Query()["code"] == code)
+
+    return data
+
+
+@router.put(
+    "/{code}",
+)
+async def update_all_user(code: str, user: UserData):
+    """Update All User"""
+
+
+@router.post(
+    "/{code}",
+)
+async def update_user(user: UserData):
+    """Update User"""

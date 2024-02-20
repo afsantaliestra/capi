@@ -19,7 +19,7 @@ class Task(Document):
     value: int = Field(...)  # Number of times done per frequency
 
     class Settings:
-        """User Settings"""
+        """Task Settings"""
 
         name = "tasks"
 

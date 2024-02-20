@@ -1,6 +1,5 @@
 """src/gateway/api/playground.py - Playground Routes"""
 from fastapi import APIRouter, HTTPException, status
-from fastapi.responses import JSONResponse, Response
 
 from src.infrastructure.user import User
 
@@ -30,8 +29,10 @@ async def get_user_by_id(_id: str):
     """
     Get User by Id
 
-    TODO: Genera un 500 al buscar una clave que no es un _id válido de mongo. Devolver un error mas específico.
-    TODO: Devuelve un 200 Ok con un null en el body cuando el _id es válido pero no lo encuentra. Devolver un error más específico.
+    TODO: Genera un 500 al buscar una clave que no es un _id válido de mongo.
+        - FIX: Devolver un error mas específico.
+    TODO: Devuelve un 200 Ok con un null en el body cuando el _id es válido pero no lo encuentra.
+        - FIX: Devolver un error más específico.
     """
     user = await User.get(_id)
     return user

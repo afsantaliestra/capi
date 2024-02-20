@@ -1,4 +1,4 @@
-"""src/infrastructure/tasks.py - Tasks"""
+"""src/infrastructure/roosters.py - Roosters"""
 from typing import List
 
 from beanie import Document, Link
@@ -15,4 +15,9 @@ class Rooster(Document):
     server: Link[Server] = Field(...)
     account: Link[Account] = Field(...)
 
-    tasks: List[Link[RoosterTask]] = Field(None)
+    tasks: List[Link[RoosterTask]] = Field([])
+
+    class Settings:
+        """Rooster Settings"""
+
+        name = "roosters"

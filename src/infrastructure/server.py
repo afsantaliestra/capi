@@ -1,6 +1,4 @@
-"""src/infrastructure/tasks.py - Tasks"""
-from typing import List
-
+"""src/infrastructure/servers.py - Servers"""
 from beanie import Document
 from pydantic import Field
 
@@ -10,3 +8,8 @@ class Server(Document):
 
     name: str = Field(...)
     region: str = Field(...)
+
+    class Settings:
+        """Server Settings"""
+
+        name = "servers"

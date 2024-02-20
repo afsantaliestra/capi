@@ -1,4 +1,4 @@
-"""src/infrastructure/tasks.py - Tasks"""
+"""src/infrastructure/users.py - Users"""
 from beanie import Document, Indexed
 from pydantic import Field
 

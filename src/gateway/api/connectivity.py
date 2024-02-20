@@ -5,6 +5,12 @@ from fastapi import APIRouter
 from starlette.responses import RedirectResponse
 
 from src.gateway.schemas.connectivity import HeartbeatResponseSchema
+from src.infrastructure.account import Account
+from src.infrastructure.character import Character
+from src.infrastructure.rooster import Rooster
+from src.infrastructure.server import Server
+from src.infrastructure.tasks import Task
+from src.infrastructure.user import User
 
 router = APIRouter(tags=["Connectivity"])
 tinydb: AIOTinyDB = AIOTinyDB("./local_dbs/tiny_db.json")
@@ -32,20 +38,20 @@ def root_path() -> RedirectResponse:
 )
 async def heartbeat(data: bool = False) -> HeartbeatResponseSchema:
     """Heartbeat"""
-    async with tinydb as database:
-        response_data = {
-            table: (
-                {
-                    "data": db_data,
-                    "count": len(db_data),
-                }
-                if data
-                else {
-                    "count": len(db_data),
-                }
-            )
-            for table in database.tables()
-            if (db_data := database.table(table).all())
-        }
+    response_data = {
+        table_obj.__name__: (
+            {
+                "data": db_data,
+                "count": len(db_data),
+            }
+            if data
+            else {
+                "data": "hidden",
+                "count": len(db_data),
+            }
+        )
+        for table_obj in [Server, Task, User, Account, Rooster, Character]
+        if (db_data := await table_obj.find_all().to_list())
+    }
 
     return HeartbeatResponseSchema(status="ok", db_data=response_data)

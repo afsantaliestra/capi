@@ -2,7 +2,7 @@ version: '3'
 
 services:
   express:
-    container_name: express
+    container_name: mongo_express
     image: mongo-express
     restart: unless-stopped
     environment:
@@ -18,8 +18,8 @@ services:
       - capi_net
   
   mongodb:
-    image: mongo:7
     container_name: mongo
+    image: mongo:7
     restart: unless-stopped
     ports:
       - 27017:27017
@@ -28,4 +28,3 @@ services:
 
 networks:
   capi_net:
-    name: capi_net

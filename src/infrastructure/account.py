@@ -1,4 +1,4 @@
-"""src/infrastructure/tasks.py - Tasks"""
+"""src/infrastructure/accounts.py - Accounts"""
 from beanie import Document, Link
 from pydantic import Field
 
@@ -10,3 +10,8 @@ class Account(Document):
 
     name: str = Field(...)
     user: Link[User] = Field(...)
+
+    class Settings:
+        """Account Settings"""
+
+        name = "accounts"
