@@ -4,6 +4,8 @@
 - [ ] Añadir las respuestas generales para diferentes casos globales. (31/01/2024 - )
 - [ ] Isort no se está ejecutando al guardar. (en mi sobremesa) (31/01/2024 - )
 - [ ] Separar la capa de servicio de la de api. (20/02/2024 - )
+- [ ] Implementar JWT, dependencias para sacar el usuario actual, etc... (20/02/2024 - )
+  - En "old-code" hay ejemplos.
 
 [Ideas]
 - Añadir el tema de contenedores para la inversión de control. (dependency-injector)
