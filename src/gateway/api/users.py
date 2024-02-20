@@ -1,4 +1,4 @@
-"""src/gateway/api/playground.py - Playground Routes"""
+"""src/gateway/api/users.py - User Routes"""
 from beanie import PydanticObjectId
 from fastapi import APIRouter, status
 

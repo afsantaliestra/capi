@@ -1,27 +1,53 @@
-"""src/__init__.py - API Configuration"""
+"""src/__init__.py - API Configuration"""  # pylint: disable=no-member
+from typing import Sequence
+
 import toml
 from fastapi import FastAPI
+from fastapi.applications import AppType
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.params import Depends
+from starlette.types import Lifespan
 
+from src.conteiners import ApplicationContainer
 from src.gateway.api import api_router, connectivity
 from src.gateway.middlewares import LoggingMiddleware, RequestIdMiddleware
 from src.utils.lifespan import lifespan
 from src.utils.logging import configure_logging
 
-pyproject = toml.load("pyproject.toml")
 
-TITLE = "FastAPI - CAPI"
+class API(FastAPI):
+    """API"""
 
-# configure_logging(level="DEBUG", service=TITLE)
+    container: ApplicationContainer
 
-app = FastAPI(
-    title=TITLE,
-    description=pyproject["tool"]["poetry"]["description"],
-    version=pyproject["tool"]["poetry"]["version"],
-    lifespan=lifespan,
-)
+    def __init__(
+        self,
+        *,
+        title: str | None = None,
+        pyproject_path: str | None = None,
+        dependencies: Sequence[Depends] | None = None,
+    ) -> None:
+        self.container = ApplicationContainer()
 
-app.include_router(connectivity.router)
+        if self.container.config.app.logging_level() in ["DEBUG", "INFO"]:
+            configure_logging(level=self.container.config.app.logging_level(), service=title)
+
+        _pyproject = toml.load(pyproject_path or "pyproject.toml")
+
+        super().__init__(
+            title=title or self.__doc__,  # type: ignore
+            description=_pyproject["tool"]["poetry"]["description"],
+            version=_pyproject["tool"]["poetry"]["version"],
+            dependencies=dependencies,
+            lifespan=lifespan,
+            root_path=f"{self.container.config.app.server()}/" if self.container.config.app.server() else "",
+        )
+
+        self.include_router(connectivity.router)
+
+
+app = API(title="FastAPI - CAPI")
+
 app.include_router(api_router, prefix="/api")
 
 app.add_middleware(LoggingMiddleware)

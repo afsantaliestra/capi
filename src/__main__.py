@@ -1,4 +1,5 @@
-"""src/__main__.py - API Entrypoint"""
+"""src/__main__.py - API Entrypoint"""  # pylint: disable=no-member
+from src import app
 
 
 def launch_with_uvicorn() -> None:
@@ -7,8 +8,8 @@ def launch_with_uvicorn() -> None:
 
     uvicorn.run(
         "src:app",
-        host="0.0.0.0",
-        port=8080,
+        host=app.container.config.app.host(),
+        port=app.container.config.app.port(),
         reload=True,
     )
 

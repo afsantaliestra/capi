@@ -6,6 +6,9 @@
 - [ ] Separar la capa de servicio de la de api. (20/02/2024 - )
 - [ ] Implementar JWT, dependencias para sacar el usuario actual, etc... (20/02/2024 - )
   - En "old-code" hay ejemplos.
+- [wip] Añadir contenedores para inversión de control. (dependency-injector) (20/02/2024 - )
+  - Necesita la separación de la capa de servicios.
+  - Vendrá bien para el JWT.
 
 [Ideas]
 - Añadir el tema de contenedores para la inversión de control. (dependency-injector)
