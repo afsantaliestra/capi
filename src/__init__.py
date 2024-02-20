@@ -1,10 +1,9 @@
 """src/__init__.py - API Configuration"""
-
 import toml
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.gateway.api import connectivity, users
+from src.gateway.api import api_router, connectivity
 from src.gateway.middlewares import LoggingMiddleware, RequestIdMiddleware
 from src.utils.lifespan import lifespan
 from src.utils.logging import configure_logging
@@ -13,7 +12,7 @@ pyproject = toml.load("pyproject.toml")
 
 TITLE = "FastAPI - CAPI"
 
-configure_logging(level="INFO", service=TITLE)
+configure_logging(level="DEBUG", service=TITLE)
 
 app = FastAPI(
     title=TITLE,
@@ -23,7 +22,7 @@ app = FastAPI(
 )
 
 app.include_router(connectivity.router)
-app.include_router(users.router)
+app.include_router(api_router, prefix="/api")
 
 app.add_middleware(LoggingMiddleware)
 app.add_middleware(RequestIdMiddleware)

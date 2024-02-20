@@ -1,40 +1,42 @@
 """src/gateway/api/playground.py - Playground Routes"""
-from fastapi import APIRouter, HTTPException, status
+from beanie import PydanticObjectId
+from fastapi import APIRouter, status
 
+from src.gateway import exceptions
+from src.gateway.schemas.users import PostUser, UserResponse
 from src.infrastructure.user import User
 
-router = APIRouter(prefix="/users", tags=["/Users"])
+router = APIRouter(prefix="/users", tags=["Users"])
 
 
 @router.post(
     "/",
     status_code=status.HTTP_201_CREATED,
+    response_model=UserResponse,
 )
-async def post_user(user: User):
+async def post_user(user: PostUser):
     """
     Post User
-
-    TODO: Genera un 500 al insertar un usuario que ya existe. Devolver un error mas específico.
-    TODO: Acepta o no un _id. No debe dar la opción a que se le pueda enviar.
     """
-    await user.insert()
-    return user
+    if await User.find(User.username == user.username).count():
+        raise exceptions.DuplicatedHTTPException()
+
+    db_user = User.from_user(user)
+    await db_user.insert()
+    return db_user
 
 
 @router.get(
-    "/{_id}",
+    "/{user_id}",
     status_code=status.HTTP_200_OK,
 )
-async def get_user_by_id(_id: str):
+async def get_user_by_id(user_id: PydanticObjectId):
     """
     Get User by Id
-
-    TODO: Genera un 500 al buscar una clave que no es un _id válido de mongo.
-        - FIX: Devolver un error mas específico.
-    TODO: Devuelve un 200 Ok con un null en el body cuando el _id es válido pero no lo encuentra.
-        - FIX: Devolver un error más específico.
     """
-    user = await User.get(_id)
+    if not (user := await User.get(user_id)):
+        raise exceptions.NotFoundHTTPException()
+
     return user
 
 
@@ -50,45 +52,31 @@ async def get_all_users():
 
 
 @router.put(
-    "/{_id}",
+    "/{user_id}",
     status_code=status.HTTP_200_OK,
 )
-async def update_user_by_id(_id: str, new_username: str):
+async def update_user_by_id(user_id: PydanticObjectId, new_username: str):
     """
     Update User by Id
-
-    TODO: Genera un 500 al buscar una clave que no es un _id válido de mongo. Devolver un error mas específico.
-    - Este lo genera el .get()
-    TODO: Genera un 500 al buscar una clave _id válida pero no la encuentra. Devolver un error mas específico.
-    - Este lo genera el user.username = new_username ya que user es None al no encontrarlo en el .get()
-
-    Seguramente ambas deben ser la misma respuesta.
     """
-    user = await User.get(_id)
+    if not (user := await User.get(user_id)):
+        raise exceptions.NotFoundHTTPException()
+
     user.username = new_username
     await user.save()
     return user
 
 
 @router.delete(
-    "/{_id}",
+    "/{user_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-async def delete_user_by_id(_id: str):
+async def delete_user_by_id(user_id: PydanticObjectId):
     """
     Delete User by Id
-
-    TODO: Genera un 500 al buscar una clave que no es un _id válido de mongo. Devolver un error mas específico.
-    - Este lo genera el .get(...) -> Error 401, bad request.
-    TODO: Genera un 500 al buscar una clave _id válida pero no la encuentra. Devolver un error mas específico.
-    - Este lo genera el .delete() ya que el user es none tras el .get(...) -> Error 404, Not Found.
-
-    Seguramente ambas deben ser la misma respuesta.
     """
-    if not (user := await User.get(_id)):
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f"User with the _id {_id} not found."
-        )
-    await user.delete()
+    if not (user := await User.get(user_id)):
+        raise exceptions.NotFoundHTTPException()
 
+    await user.delete()
     return user

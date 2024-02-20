@@ -42,7 +42,7 @@ lint: pylint ln bandit ln flake8
 
 pylint:
 	@echo "\e[44mPylint linter\e[0m"
-	@echo "project_template folder"
+	@echo "src folder"
 	@poetry run pylint --rcfile=dev_configs/.pylintrc src/
 	@echo "tests folder"
 	@poetry run pylint --rcfile=dev_configs/.pylintrc tests/

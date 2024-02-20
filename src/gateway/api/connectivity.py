@@ -2,7 +2,7 @@
 from fastapi import APIRouter
 from starlette.responses import RedirectResponse
 
-from src.gateway.schemas.connectivity import HeartbeatResponseSchema
+from src.gateway.schemas.connectivity import HeartbeatResponse
 from src.infrastructure.account import Account
 from src.infrastructure.character import Character
 from src.infrastructure.rooster import Rooster
@@ -25,7 +25,7 @@ def root_path() -> RedirectResponse:
 @router.get(
     "/heartbeat",
     status_code=200,
-    response_model=HeartbeatResponseSchema,
+    response_model=HeartbeatResponse,
     responses={
         200: {
             "description": "Heartbeat response",
@@ -33,7 +33,7 @@ def root_path() -> RedirectResponse:
         },
     },
 )
-async def heartbeat(data: bool = False) -> HeartbeatResponseSchema:
+async def heartbeat(data: bool = False) -> HeartbeatResponse:
     """Heartbeat"""
     response_data = {
         table_obj.__name__: (
@@ -42,13 +42,10 @@ async def heartbeat(data: bool = False) -> HeartbeatResponseSchema:
                 "count": len(db_data),
             }
             if data
-            else {
-                "data": "hidden",
-                "count": len(db_data),
-            }
+            else len(db_data)
         )
         for table_obj in [Server, Task, User, Account, Rooster, Character]
         if (db_data := await table_obj.find_all().to_list())
     }
 
-    return HeartbeatResponseSchema(status="ok", db_data=response_data)
+    return HeartbeatResponse(status="ok", db_data=response_data)
