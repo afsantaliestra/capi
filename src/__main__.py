@@ -1,4 +1,4 @@
-"""src/__main__.py - API Entrypoint"""  # pylint: disable=no-member
+"""src/__main__.py - API Entrypoint"""
 from src import app
 
 
@@ -21,4 +21,4 @@ def main(launch: str) -> None:
 
 
 if __name__ == "__main__":
-    main("uvicorn")
+    main(app.container.config.app.server())

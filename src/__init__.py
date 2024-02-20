@@ -1,12 +1,10 @@
-"""src/__init__.py - API Configuration"""  # pylint: disable=no-member
+"""src/__init__.py - API Configuration"""
 from typing import Sequence
 
 import toml
 from fastapi import FastAPI
-from fastapi.applications import AppType
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.params import Depends
-from starlette.types import Lifespan
 
 from src.conteiners import ApplicationContainer
 from src.gateway.api import api_router, connectivity

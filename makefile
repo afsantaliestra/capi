@@ -18,8 +18,8 @@ format: black ln isort
 
 black:
 	@echo "\e[44mBlack formatter\e[0m"
-	@poetry run black --line-length=99 src/
-	@poetry run black --line-length=99 tests/
+	@poetry run black --line-length=120 src/
+	@poetry run black --line-length=120 tests/
 
 isort:
 	@echo "\e[44mIsort formatter\e[0m"
@@ -30,8 +30,8 @@ check_format: check_black ln check_isort
 
 check_black:
 	@echo "\e[44m(Check) Black formatter\e[0m"
-	@poetry run black --check --line-length=99 src/
-	@poetry run black --check --line-length=99 tests/
+	@poetry run black --check --line-length=120 src/
+	@poetry run black --check --line-length=120 tests/
 
 check_isort:
 	@echo "\e[44m(Check) Isort formatter\e[0m"
