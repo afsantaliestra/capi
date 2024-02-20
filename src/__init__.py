@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.gateway.api import checklist, connectivity, crud
+from src.gateway.api import checklist, connectivity, crud, playground, users
 from src.gateway.middlewares import LoggingMiddleware, RequestIdMiddleware
 from src.utils.lifespan import lifespan
 
@@ -11,9 +11,11 @@ app = FastAPI(
     title="FastAPI - Character API",
     lifespan=lifespan,
 )
-app.include_router(connectivity.router)
-app.include_router(crud.router)
-app.include_router(checklist.router)
+# app.include_router(connectivity.router)
+# app.include_router(crud.router)
+# app.include_router(checklist.router)
+# app.include_router(playground.router)
+app.include_router(users.router)
 
 app.add_middleware(LoggingMiddleware)
 app.add_middleware(RequestIdMiddleware)

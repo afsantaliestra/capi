@@ -29,7 +29,10 @@ api_generic_struct = {
         "fields": {
             "name": (str, ...),
             "scope": (str, ...),  # Character, Rooster
-            "repetitions": (str, ...),  # If Daily, times per day, if Weekly, times per week and So on.
+            "repetitions": (
+                str,
+                ...,
+            ),  # If Daily, times per day, if Weekly, times per week and So on.
             "frequency": (str, ...),  # Daily, Weekly, Bi-Weekly, Specific Days, One Time
             "rests": (bool, ...),  # Yes (Has Rests) o No.
             "min_ilvl": (int, ...),

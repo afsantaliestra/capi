@@ -71,7 +71,9 @@ class GenericCRUD:
                 table: Table = database.table(category_data["table_name"])
                 contents = table.all()
 
-            return category_response_model(**{category_data["table_name"]: contents, "count": len(contents)})
+            return category_response_model(
+                **{category_data["table_name"]: contents, "count": len(contents)}
+            )
 
     def create_get_by_pk(self, category_data, category_router, category_response_model):
         """Create Get All"""
@@ -94,7 +96,9 @@ class GenericCRUD:
     def generate(self):
         """Generate FastAPI Endpoints and Pydantic Models"""
         for _, category_data in self.struct.items():
-            category_router = APIRouter(prefix=category_data["api"]["prefix"], tags=category_data["api"]["tags"])
+            category_router = APIRouter(
+                prefix=category_data["api"]["prefix"], tags=category_data["api"]["tags"]
+            )
             category_model = create_model(
                 category_data["table_name"].capitalize(),
                 **category_data["fields"],

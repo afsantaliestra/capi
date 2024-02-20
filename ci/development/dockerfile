@@ -1,5 +1,5 @@
 # Imagen base. ToDo: Usar una mas ligera o poner las diferentes opciones.
-FROM python:3.11
+FROM python:3.11.6
 
 # Setup Timezone
 ENV TZ=Europe/Madrid
@@ -24,4 +24,9 @@ RUN pip install --upgrade pip && \
     poetry config virtualenvs.in-project true
 
 # Launch project
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+COPY ./ /src/capi
+RUN poetry install
+ENTRYPOINT ["poetry", "run", "python", "src"]
+
+# Infinite command to use as dev_container.
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
