@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "src"
 version = "0.1.0"
-description = "Character API"
+description = "CAPI - The Character API"
 authors = [
     "Ángel Felipe Santaliestra Pasías <afsantaliestra@gmail.com>"
 ]
@@ -15,8 +15,8 @@ dependency-injector = "^4.41.0"
 toml = "^0.10.2"
 gunicorn = "^21.2.0"
 hypercorn = {extras = ["h2"], version = "^0.15.0"}
-aiotinydb = "^2.0.0"
 beanie = "^1.25.0"
+python-json-logger = "^2.0.7"
 
 
 [tool.poetry.group.dev.dependencies]

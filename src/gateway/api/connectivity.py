@@ -1,6 +1,4 @@
 """src/gateway/api/connectivity.py - Connectivity Routes"""
-
-from aiotinydb import AIOTinyDB
 from fastapi import APIRouter
 from starlette.responses import RedirectResponse
 
@@ -13,7 +11,6 @@ from src.infrastructure.tasks import Task
 from src.infrastructure.user import User
 
 router = APIRouter(tags=["Connectivity"])
-tinydb: AIOTinyDB = AIOTinyDB("./local_dbs/tiny_db.json")
 
 
 @router.get(
