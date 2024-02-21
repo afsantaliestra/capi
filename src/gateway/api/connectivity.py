@@ -1,4 +1,6 @@
 """src/gateway/api/connectivity.py - Connectivity Routes"""
+from typing import Any
+
 from fastapi import APIRouter
 from starlette.responses import RedirectResponse
 
@@ -15,11 +17,12 @@ router = APIRouter(tags=["Connectivity"])
 
 @router.get(
     "/",
+    response_class=RedirectResponse,
     include_in_schema=False,
 )
-def root_path() -> RedirectResponse:
+def root_path() -> Any:
     """Root path"""
-    return RedirectResponse("/docs")
+    return "/docs"
 
 
 @router.get(
@@ -29,14 +32,28 @@ def root_path() -> RedirectResponse:
     responses={
         200: {
             "description": "Heartbeat response",
-            "content": {"application/json": {"example": {"status": "ok"}}},
+            "content": {
+                "application/json": {
+                    "example": {
+                        "status": "ok",
+                        "db_data": {
+                            "servers": {"data": [], "count": 0},
+                            "users": {"data": [], "count": 0},
+                            "accounts": {"data": [], "count": 0},
+                            "roosters": {"data": [], "count": 0},
+                            "characters": {"data": [], "count": 0},
+                            "tasks": {"data": [], "count": 0},
+                        },
+                    }
+                }
+            },
         },
     },
 )
-async def heartbeat(data: bool = False) -> HeartbeatResponse:
+async def heartbeat(data: bool = False) -> Any:
     """Heartbeat"""
     response_data = {
-        table_obj.__name__: (
+        table_obj.Settings.name: (
             {
                 "data": db_data,
                 "count": len(db_data),

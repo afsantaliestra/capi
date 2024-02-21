@@ -1,5 +1,7 @@
 .DEFAULT_GOAL := compose
 
+all: compose ln doc ln run
+
 compose:
 	@echo "\e[44mLaunching docker for development\e[0m"
 	cd ci/development; docker-compose --progress plain -f docker-compose.yml up -d
@@ -9,8 +11,12 @@ install:
 	poetry install
 
 run: install
-	@echo "\e[44mLaunching docker for development\e[0m"
+	@echo "\e[44mLaunching project in local\e[0m"
 	poetry run python src
+
+doc: install
+	@echo "\e[44mLaunching doc server\e[0m"
+	cd doc; poetry run mkdocs serve > output.log 2>&1 &
 
 build: check_format ln lint ln test
 

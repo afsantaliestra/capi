@@ -9,6 +9,8 @@
 - [wip] Añadir contenedores para inversión de control. (dependency-injector) (20/02/2024 - )
   - Necesita la separación de la capa de servicios.
   - Vendrá bien para el JWT.
+- [ ] Crear docu del repo.
+- [ ] Crear carpeta que hará como de proyecto core para diferentes API's.
 
 [Ideas]
 - Añadir el tema de contenedores para la inversión de control. (dependency-injector)

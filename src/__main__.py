@@ -21,4 +21,4 @@ def main(launch: str) -> None:
 
 
 if __name__ == "__main__":
-    main(app.container.config.app.server())
+    main("uvicorn")  # app.container.config.app.server())

@@ -1,0 +1,8 @@
+site_name: CAPI
+site_description: Character API
+site_author: Ángel Felipe Santaliestra Pasías
+copyright: WTFL
+nav:
+  - Introduction: "index.md"
+  - "Donkey Guide - HTTP": "donkey_guides/http.md"
+  - "Donkey Guide - FastAPI": "donkey_guides/fastapi.md"

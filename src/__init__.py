@@ -8,6 +8,7 @@ from fastapi.params import Depends
 
 from src.conteiners import ApplicationContainer
 from src.gateway.api import api_router, connectivity
+from src.gateway.examples import api_endpoints
 from src.gateway.middlewares import LoggingMiddleware, RequestIdMiddleware
 from src.utils.lifespan import lifespan
 from src.utils.logging import configure_logging
@@ -42,11 +43,12 @@ class API(FastAPI):
         )
 
         self.include_router(connectivity.router)
+        self.include_router(api_endpoints.router)
 
 
 app = API(title="FastAPI - CAPI")
 
-app.include_router(api_router, prefix="/api")
+# app.include_router(api_router, prefix="/api")
 
 app.add_middleware(LoggingMiddleware)
 app.add_middleware(RequestIdMiddleware)

@@ -26,6 +26,7 @@ pylint = "^3.0.3"
 bandit = "^1.7.6"
 flake8 = "^6.1.0"
 mypy = "^1.8.0"
+mkdocs = "^1.5.3"
 
 [build-system]
 requires = ["poetry-core"]
