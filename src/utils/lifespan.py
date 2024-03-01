@@ -1,10 +1,12 @@
 """src/utils/lifespan.py - Lifespan"""
+import asyncio
 import logging
 import typing
 from contextlib import asynccontextmanager
 
 from beanie import init_beanie
 from fastapi import FastAPI
+from mkdocs.commands import serve
 from motor.core import AgnosticClient
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -41,6 +43,14 @@ async def initialize_beanie() -> None:
             "type": "api-startup",
         },
     )
+
+
+async def launch_docs() -> None:
+    """Launch Docs"""
+
+    print("sirvo")
+    serve.serve("./doc/mkdocs.yml")
+    print("dejo de hacerlo")
 
 
 @asynccontextmanager

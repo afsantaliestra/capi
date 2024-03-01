@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := compose
 
-all: compose ln doc ln run
+all: compose ln run
 
 compose:
 	@echo "\e[44mLaunching docker for development\e[0m"
